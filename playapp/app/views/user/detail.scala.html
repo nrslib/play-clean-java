@@ -1,0 +1,30 @@
+@import viewmodels.user.UserDetailViewModel
+@(model: UserDetailViewModel)
+
+@main("UserIndex") {
+    <div class="container">
+        <div class="row">
+            <h1 class="col-lg-12">User List</h1>
+        </div>
+
+        <div class="row">
+            <table class="table">
+                <tr>
+                    <td>Name</td>
+                    <td>@model.getName()</td>
+                </tr>
+            </table>
+        </div>
+
+        <div class="row">
+            <div class="col-lg-6">
+                <a href="@routes.UserController.updateInput(model.getId())" class="btn btn-primary">Modify</a>
+            </div>
+            <div class="col-lg-6">
+                @helper.form(action = routes.UserController.deleteSubmit(model.getId())) {
+                    <input type="submit" class="btn btn-secondary" value="Delete" />
+                }
+            </div>
+        </div>
+    </div>
+}

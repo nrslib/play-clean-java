@@ -1,0 +1,17 @@
+@import viewmodels.user.add.UserAddInputViewModel
+@import viewmodels.user.add.UserAddForm
+@(model: UserAddInputViewModel, form: Form[UserAddForm])
+
+@main("UserAddInput"){
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-12">
+                @helper.form(action = routes.UserController.addInputSubmit) {
+                    @helper.inputText(form("name"), '_label -> "UserName")
+                    <input type="submit" class="btn btn-primary" value="Register" />
+                }
+            </div>
+
+        </div>
+    </div>
+}

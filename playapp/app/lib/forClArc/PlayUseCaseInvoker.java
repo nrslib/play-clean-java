@@ -23,8 +23,7 @@ public class PlayUseCaseInvoker implements UseCaseInvoker {
     }
 
     @Override
-    public <TOutputData extends OutputData> TOutputData invoke(InputData<TOutputData> inputData)
-    {
+    public <TOutputData extends OutputData> TOutputData invoke(InputData<TOutputData> inputData) {
         Object interactor = provider.getService(implementClazz);
 
         Object outputData = null;

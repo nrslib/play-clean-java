@@ -30,6 +30,6 @@ public class UserAddInteractor implements UserAddUseCase {
 
         userRepository.save(user);
 
-        return new UserAddOutputData();
+        return new UserAddOutputData(uuid);
     }
 }

@@ -3,15 +3,13 @@ package controllers;
 import com.google.inject.Inject;
 import com.nrslib.clArc.UseCaseBus;
 import com.nrslib.usecases.user.add.UserAddInputData;
-import com.nrslib.usecases.user.add.UserAddOutputData;
 import com.nrslib.usecases.user.delete.UserDeleteInputData;
-import com.nrslib.usecases.user.delete.UserDeleteOutputData;
 import com.nrslib.usecases.user.getDetail.UserGetDetailInputData;
 import com.nrslib.usecases.user.getDetail.UserGetDetailOutputData;
 import com.nrslib.usecases.user.getList.UserGetListInputData;
 import com.nrslib.usecases.user.getList.UserGetListOutputData;
 import com.nrslib.usecases.user.update.UserUpdateInputData;
-import com.nrslib.usecases.user.update.UserUpdateOutputData;
+import lib.view.converter.user.UserRoleConverter;
 import play.data.Form;
 import play.data.FormFactory;
 import play.mvc.Controller;
@@ -23,13 +21,10 @@ import viewmodels.user.add.UserAddInputViewModel;
 import viewmodels.user.common.UserViewModel;
 import viewmodels.user.update.UserUpdateForm;
 import viewmodels.user.update.UserUpdateInputViewModel;
-import views.html.user.add.input;
 import views.html.user.detail;
 import views.html.user.index;
 
-import java.util.HashMap;
 import java.util.List;
-import java.util.Map;
 import java.util.stream.Collectors;
 
 public class UserController extends Controller {
@@ -38,6 +33,9 @@ public class UserController extends Controller {
 
     @Inject
     private UseCaseBus bus;
+
+    @Inject
+    private UserRoleConverter userRoleConverter;
 
     @Inject
     public UserController(FormFactory formFactory){
@@ -70,7 +68,7 @@ public class UserController extends Controller {
 
         UserAddForm form = requestForm.get();
 
-        UserAddInputData inputData = new UserAddInputData(form.name);
+        UserAddInputData inputData = new UserAddInputData(form.name, userRoleConverter.convert(form.roleId));
         bus.handle(inputData);
 
         return redirect(routes.UserController.index());
@@ -85,7 +83,7 @@ public class UserController extends Controller {
         }
 
         UserDetailViewModel viewModel = outputData.getUserData()
-                .map(x -> new UserDetailViewModel(id, x.getName()))
+                .map(x -> new UserDetailViewModel(id, x.getName(), userRoleConverter.convert(x.getRole())))
                 .get();
 
         return ok(detail.render(viewModel));

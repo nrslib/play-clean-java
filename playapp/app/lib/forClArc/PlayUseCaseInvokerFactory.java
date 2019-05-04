@@ -1,4 +1,4 @@
-package webapp.forClArc;
+package lib.forClArc;
 
 import com.nrslib.clArc.inject.ServiceProvider;
 import com.nrslib.clArc.invoke.UseCaseInvoker;

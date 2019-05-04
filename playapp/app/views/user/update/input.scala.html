@@ -1,5 +1,6 @@
 @import viewmodels.user.update.UserUpdateForm
 @import viewmodels.user.update.UserUpdateInputViewModel
+@import views.html.helper.options
 @(model: UserUpdateInputViewModel, form: Form[UserUpdateForm])
 
 @main("UserAddInput"){
@@ -10,6 +11,11 @@
                     @helper.inputText(form("name"), '_label -> "UserName")
                     <input type="submit" class="btn btn-primary" value="Register" />
                 }
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-lg-12">
+                <a href="@routes.UserController.index()" class="btn btn-secondary">Back</a>
             </div>
         </div>
     </div>

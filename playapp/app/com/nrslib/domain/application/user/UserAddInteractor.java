@@ -24,8 +24,9 @@ public class UserAddInteractor implements UserAddUseCase {
 
         User user = new User(
                 new UserId(uuid),
-                new UserName(inputData.getUserName()
-                ));
+                new UserName(inputData.getUserName()),
+                inputData.getRole()
+        );
 
         userRepository.save(user);
 

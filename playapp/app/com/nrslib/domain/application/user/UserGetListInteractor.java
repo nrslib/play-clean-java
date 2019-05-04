@@ -19,7 +19,7 @@ public class UserGetListInteractor implements UserGetListUseCase {
         List<User> users = userRepository.findAll();
 
         List<UserData> userData = users.stream()
-                .map(x -> new UserData(x.getId().getValue(), x.getName().getValue()))
+                .map(x -> new UserData(x.getId().getValue(), x.getName().getValue(), x.getRole()))
                 .collect(Collectors.toList());
 
         return new UserGetListOutputData(userData);

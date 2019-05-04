@@ -1,5 +1,6 @@
 @import viewmodels.user.add.UserAddInputViewModel
 @import viewmodels.user.add.UserAddForm
+@import views.html.helper.options
 @(model: UserAddInputViewModel, form: Form[UserAddForm])
 
 @main("UserAddInput"){
@@ -8,10 +9,15 @@
             <div class="col-lg-12">
                 @helper.form(action = routes.UserController.addInputSubmit) {
                     @helper.inputText(form("name"), '_label -> "UserName")
+                    @helper.inputRadioGroup(field = form("roleId"), options("admin"->"管理者","member"->"一般"))
                     <input type="submit" class="btn btn-primary" value="Register" />
                 }
             </div>
-
+        </div>
+        <div class="row">
+            <div class="col-lg-12">
+                <a href="@routes.UserController.index()" class="btn btn-secondary">Back</a>
+            </div>
         </div>
     </div>
 }

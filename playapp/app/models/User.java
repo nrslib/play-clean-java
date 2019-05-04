@@ -12,6 +12,8 @@ public class User extends Model {
 
     private String name;
 
+    private int role;
+
     public String getId() {
         return id;
     }
@@ -27,6 +29,10 @@ public class User extends Model {
     public void setName(String name) {
         this.name = name;
     }
+
+    public int getRole() { return role; }
+
+    public void setRole(int role) { this.role = role; }
 
     public static Find<String, User> find = new Find<String, User>() {};
 }

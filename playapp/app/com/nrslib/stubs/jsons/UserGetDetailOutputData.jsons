@@ -1,6 +1,7 @@
 {
     "userData" : {
         "id" : "a",
-        "name" : "test"
+        "name" : "test",
+        "role" : 0
     }
 }

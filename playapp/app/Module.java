@@ -6,6 +6,7 @@ import config.inject.DebugDependencyConfig;
 import config.inject.DependencyConfig;
 import config.inject.GuicyServiceProvider;
 import config.inject.ProductDependencyConfig;
+import lib.view.converter.user.UserRoleConverter;
 import play.Configuration;
 import play.Environment;
 
@@ -45,6 +46,7 @@ public class Module extends AbstractModule implements ServiceCollection {
     protected void configure() {
         DependencyConfig dependencyConfig = dependencyConfig();
         dependencyConfig.register(this);
+        configureCommons();
     }
 
     private DependencyConfig dependencyConfig(){
@@ -53,5 +55,9 @@ public class Module extends AbstractModule implements ServiceCollection {
             case "product": return new ProductDependencyConfig();
             default: throw new RuntimeException();
         }
+    }
+
+    private void configureCommons() {
+        bind(UserRoleConverter.class);
     }
 }

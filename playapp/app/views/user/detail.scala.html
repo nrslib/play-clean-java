@@ -13,6 +13,10 @@
                     <td>Name</td>
                     <td>@model.getName()</td>
                 </tr>
+                <tr>
+                    <td>Role</td>
+                    <td>@model.getRoleId()</td>
+                </tr>
             </table>
         </div>
 
@@ -24,6 +28,11 @@
                 @helper.form(action = routes.UserController.deleteSubmit(model.getId())) {
                     <input type="submit" class="btn btn-secondary" value="Delete" />
                 }
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-lg-12">
+                <a href="@routes.UserController.index()" class="btn btn-secondary">Back</a>
             </div>
         </div>
     </div>

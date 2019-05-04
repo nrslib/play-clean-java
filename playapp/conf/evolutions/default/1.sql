@@ -6,6 +6,7 @@
 create table user (
   id                            varchar(255) not null,
   name                          varchar(255),
+  role                          integer,
   constraint pk_user primary key (id)
 );
 

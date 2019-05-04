@@ -20,7 +20,7 @@ public class UserGetDetailInteractor implements UserGetDetailUseCase {
         UserId targetId = new UserId(inputId);
 
         Optional<UserData> optUserData = userRepository.find(targetId)
-                .map(x -> new UserData(x.getId().getValue(), x.getName().getValue()));
+                .map(x -> new UserData(x.getId().getValue(), x.getName().getValue(), x.getRole()));
 
         return new UserGetDetailOutputData(optUserData);
     }

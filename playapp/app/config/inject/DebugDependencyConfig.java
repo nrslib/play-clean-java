@@ -15,7 +15,7 @@ import com.nrslib.usecases.user.getDetail.UserGetDetailInputData;
 import com.nrslib.usecases.user.getList.UserGetListInputData;
 import com.nrslib.usecases.user.update.UserUpdateInputData;
 import gateways.user.EBeanUserRepository;
-import webapp.forClArc.PlayUseCaseInvokerFactory;
+import lib.forClArc.PlayUseCaseInvokerFactory;
 
 import java.io.File;
 import java.util.HashMap;

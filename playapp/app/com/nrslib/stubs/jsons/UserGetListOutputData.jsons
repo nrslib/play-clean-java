@@ -2,15 +2,18 @@
     "users" : [
         {
             "id" : "1",
-            "name" : "testuser-1"
+            "name" : "testuser-1",
+            "role" : 0
         },
         {
             "id" : "2",
-            "name" : "testuser-2"
+            "name" : "testuser-2",
+            "role" : 1
         },
         {
             "id" : "3",
-            "name" : "testuser-3"
+            "name" : "testuser-3",
+             "role" : 1
         }
     ]
 }
@@ -18,43 +21,52 @@
     "users" : [
         {
             "id" : "1",
-            "name" : "testuser-1"
+            "name" : "testuser-1",
+            "role" : 0
         },
         {
             "id" : "2",
-            "name" : "testuser-2"
+            "name" : "testuser-2",
+             "role" : 1
         },
         {
             "id" : "3",
-            "name" : "testuser-3"
+            "name" : "testuser-3",
+             "role" : 1
         },
         {
             "id" : "4",
-            "name" : "testuser-4"
-        }
+            "name" : "testuser-4",
+             "role" : 1
+        },
     ]
 }
 {
     "users" : [
         {
             "id" : "1",
-            "name" : "testuser-1"
+            "name" : "testuser-1",
+            "role" : 0
         },
         {
             "id" : "2",
-            "name" : "testuser-2"
+            "name" : "testuser-2",
+            "role" : 1
         },
         {
             "id" : "3",
-            "name" : "testuser-3"
+            "name" : "testuser-3",
+            "role" : 1
         },
         {
             "id" : "4",
-            "name" : "testuser-4"
+            "name" : "testuser-4",
+            "role" : 1
         },
         {
             "id" : "5",
-            "name" : "testuser-5"
+            "name" : "testuser-5",
+            "role" : 1
         }
     ]
 }

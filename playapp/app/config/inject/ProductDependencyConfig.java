@@ -3,8 +3,13 @@ package config.inject;
 import com.nrslib.clArc.UseCaseBus;
 import com.nrslib.clArc.UseCaseBusBuilder;
 import com.nrslib.clArc.inject.ServiceCollection;
+import com.nrslib.domain.application.account.AccountGetInfoInteractor;
+import com.nrslib.domain.application.auth.AuthLoginInteractor;
 import com.nrslib.domain.application.user.*;
+import com.nrslib.domain.context.UserContext;
 import com.nrslib.domain.model.user.UserRepository;
+import com.nrslib.usecases.account.getInfo.AccountGetInfoInputData;
+import com.nrslib.usecases.auth.login.AuthLoginInputData;
 import com.nrslib.usecases.core.InputData;
 import com.nrslib.usecases.core.OutputData;
 import com.nrslib.usecases.core.UseCase;
@@ -14,6 +19,7 @@ import com.nrslib.usecases.user.getDetail.UserGetDetailInputData;
 import com.nrslib.usecases.user.getList.UserGetListInputData;
 import com.nrslib.usecases.user.update.UserUpdateInputData;
 import gateways.user.EBeanUserRepository;
+import lib.context.HttpSessionUserContext;
 import lib.forClArc.PlayUseCaseInvokerFactory;
 
 import java.util.HashMap;
@@ -22,6 +28,10 @@ public class ProductDependencyConfig implements DependencyConfig {
     private HashMap<Class<? extends InputData>, Class<? extends UseCase<? extends InputData<? extends OutputData>, ? extends OutputData>>> usecaseClazzes
             = new HashMap<Class<? extends InputData>, Class<? extends UseCase<? extends InputData<? extends OutputData>, ? extends OutputData>>>() {
         {
+            put(AccountGetInfoInputData.class, AccountGetInfoInteractor.class);
+
+            put(AuthLoginInputData.class, AuthLoginInteractor.class);
+
             put(UserAddInputData.class, UserAddInteractor.class);
             put(UserDeleteInputData.class, UserDeleteInteractor.class);
             put(UserGetDetailInputData.class, UserGetDetailInteractor.class);
@@ -38,6 +48,7 @@ public class ProductDependencyConfig implements DependencyConfig {
     public void register(ServiceCollection collection) {
         registerUseCase(collection);
         registerRepositories(collection);
+        registerLibraries(collection);
     }
 
     private void registerUseCase(ServiceCollection collection) {
@@ -50,5 +61,9 @@ public class ProductDependencyConfig implements DependencyConfig {
 
     private void registerRepositories(ServiceCollection collection){
         collection.addTransient(UserRepository.class, EBeanUserRepository.class);
+    }
+
+    private void registerLibraries(ServiceCollection collection) {
+        collection.addTransient(UserContext.class, HttpSessionUserContext.class);
     }
 }

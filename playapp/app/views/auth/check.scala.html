@@ -1,0 +1,40 @@
+@import viewmodels.auth.AuthCheckViewModel
+@(model: AuthCheckViewModel)
+
+@main("AuthCheck") {
+    <div class="container">
+        <div class="row">
+            <h1 class="col-lg">Check</h1>
+        </div>
+
+        <div class="row">
+            <div class="col-md">
+                @if(model.isLogin()){
+                    Current State: Login
+                }else{
+                    Current State: Logout
+                }
+            </div>
+        </div>
+
+        <div class="row">
+            <div class="col-md">
+                @if(model.isLogin()){
+                    <a href="@routes.AccountController.index" class="btn btn-primary btn-block">Show my account</a>
+                }
+
+                @if(model.isLogin()){
+                    <a href="@routes.AuthController.logout" class="btn btn-primary btn-block">Logout</a>
+                }else{
+                    <a href="@routes.AuthController.login" class="btn btn-primary btn-block">Login</a>
+                }
+            </div>
+        </div>
+
+        <div class="row mt-1">
+            <div class="col-md">
+                <a href="@routes.Application.index" class="btn btn-secondary btn-block">Back</a>
+            </div>
+        </div>
+    </div>
+}

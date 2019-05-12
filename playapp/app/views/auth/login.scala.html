@@ -1,0 +1,26 @@
+@import viewmodels.auth.login.AuthLoginForm
+@(form: Form [AuthLoginForm])
+
+@main("AuthLogin") {
+    <div class="container">
+        <div class="row">
+            <h1 class="col-md">Login</h1>
+        </div>
+
+        <div class="row">
+            <div class="col-md">
+            @helper.form(action = routes.AuthController.submit) {
+                @helper.inputText(form("id"), '_label -> "id")
+                @helper.inputText(form("password"), '_label -> "Password")
+                <input type="submit" class="btn btn-primary btn-block" value="Login">
+            }
+            </div>
+        </div>
+
+        <div class="row mt-1">
+            <div class="col-md">
+                <a href="@routes.AuthController.check" class="btn btn-secondary btn-block">Back</a>
+            </div>
+        </div>
+    </div>
+}

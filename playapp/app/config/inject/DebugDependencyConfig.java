@@ -5,7 +5,12 @@ import com.nrslib.clArc.UseCaseBusBuilder;
 import com.nrslib.clArc.inject.ServiceCollection;
 import com.nrslib.domain.model.user.UserRepository;
 import com.nrslib.lib.json.objectLoader.JsonsLoader;
+import com.nrslib.stubs.account.StubAccountGetInfoInteractor;
+import com.nrslib.stubs.auth.StubAuthLoginInteractor;
 import com.nrslib.stubs.users.*;
+import com.nrslib.usecases.account.getInfo.AccountGetInfoInputData;
+import com.nrslib.usecases.account.getInfo.AccountGetInfoUseCase;
+import com.nrslib.usecases.auth.login.AuthLoginInputData;
 import com.nrslib.usecases.core.InputData;
 import com.nrslib.usecases.core.OutputData;
 import com.nrslib.usecases.core.UseCase;
@@ -24,6 +29,10 @@ public class DebugDependencyConfig implements DependencyConfig {
     private HashMap<Class<? extends InputData>, Class<? extends UseCase<? extends InputData<? extends OutputData>, ? extends OutputData>>> usecaseClazzes
             = new HashMap<Class<? extends InputData>, Class<? extends UseCase<? extends InputData<? extends OutputData>, ? extends OutputData>>>() {
         {
+            put(AccountGetInfoInputData.class, StubAccountGetInfoInteractor.class);
+
+            put(AuthLoginInputData.class, StubAuthLoginInteractor.class);
+
             put(UserAddInputData.class, StubUserAddInteractor.class);
             put(UserDeleteInputData.class, StubUserDeleteInteractor.class);
             put(UserGetDetailInputData.class, StubUserGetDetailInteractor.class);

@@ -5,6 +5,13 @@
 # Home page
 GET     /                             controllers.Application.index
 
+GET     /account                      controllers.AccountController.index
+
+GET     /auth/check                   controllers.AuthController.check
+POST    /auth/submit                  controllers.AuthController.submit
+GET     /login                        controllers.AuthController.login
+GET     /logout                       controllers.AuthController.logout
+
 GET     /user                         controllers.UserController.index
 GET     /user/add/input               controllers.UserController.addInput()
 POST    /user/add/input/submit        controllers.UserController.addInputSubmit()

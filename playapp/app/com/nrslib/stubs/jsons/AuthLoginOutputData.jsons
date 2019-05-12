@@ -1,0 +1,7 @@
+{
+    "success" : true,
+    "accountInfo" : {
+        "id" : "test-id",
+        "name" : "test-user-name"
+    }
+}

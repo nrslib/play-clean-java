@@ -2,9 +2,6 @@
 
 Clean Architecture sample in PlayFramework
 
-参考記事は以下です  
-https://nrslib.com/clean-architecture/  
-
 ## 機能
 アプリケーションの機能は次のとおりです。
 

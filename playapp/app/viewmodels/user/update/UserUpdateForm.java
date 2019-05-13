@@ -7,7 +7,4 @@ public class UserUpdateForm {
     @Constraints.MinLength(3)
     @Constraints.MaxLength(10)
     public String name;
-
-    @Constraints.Required(message="check role")
-    public String roleId;
 }

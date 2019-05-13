@@ -8,7 +8,9 @@ import com.nrslib.domain.model.user.UserRepository;
 import com.nrslib.usecases.user.update.UserUpdateInputData;
 import com.nrslib.usecases.user.update.UserUpdateOutputData;
 import com.nrslib.usecases.user.update.UserUpdateUseCase;
+import play.db.ebean.Transactional;
 
+@Transactional
 public class UserUpdateInteractor implements UserUpdateUseCase {
     @Inject
     private UserRepository userRepository;

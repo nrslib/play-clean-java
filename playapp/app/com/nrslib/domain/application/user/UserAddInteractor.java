@@ -12,13 +12,13 @@ import play.db.ebean.Transactional;
 
 import java.util.UUID;
 
+@Transactional
 public class UserAddInteractor implements UserAddUseCase {
 
     @Inject
     private UserRepository userRepository;
 
     @Override
-    @Transactional
     public UserAddOutputData handle(UserAddInputData inputData) {
         String uuid = UUID.randomUUID().toString();
 

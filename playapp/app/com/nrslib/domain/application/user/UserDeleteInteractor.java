@@ -6,7 +6,9 @@ import com.nrslib.domain.model.user.UserRepository;
 import com.nrslib.usecases.user.delete.UserDeleteInputData;
 import com.nrslib.usecases.user.delete.UserDeleteOutputData;
 import com.nrslib.usecases.user.delete.UserDeleteUseCase;
+import play.db.ebean.Transactional;
 
+@Transactional
 public class UserDeleteInteractor implements UserDeleteUseCase {
     @Inject
     private UserRepository userRepository;

@@ -12,6 +12,7 @@ import com.nrslib.usecases.user.update.UserUpdateInputData;
 import lib.view.converter.user.UserRoleConverter;
 import play.data.Form;
 import play.data.FormFactory;
+import play.db.ebean.Transactional;
 import play.mvc.Controller;
 import play.mvc.Result;
 import viewmodels.user.UserDetailViewModel;
